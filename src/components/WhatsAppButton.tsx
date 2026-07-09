@@ -27,7 +27,7 @@ export function WhatsAppButton() {
     <div
       className={`fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 transition-all duration-500 sm:bottom-6 sm:right-6 ${
         show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-8 opacity-0'
-      }`
+      }`}
     >
       {/* Tooltip */}
       {tooltip && (
