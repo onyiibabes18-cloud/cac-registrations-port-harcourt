@@ -1,33 +1,13 @@
 import { MessageCircle, FileText, ClipboardCheck, Award } from 'lucide-react';
-import { BUSINESS, whatsappLink } from '../data/business';
+import { whatsappLink } from '../data/business';
 import { Reveal } from './Reveal';
 import { SectionHeading } from './SectionHeading';
 
 const STEPS = [
-  {
-    icon: MessageCircle,
-    step: '01',
-    title: 'Contact Us on WhatsApp',
-    description: `Send a message to ${BUSINESS.owner} on WhatsApp or call ${BUSINESS.phoneDisplay}. Tell us what you want to register and we will advise you instantly.`,
-  },
-  {
-    icon: FileText,
-    step: '02',
-    title: 'Submit Your Documents',
-    description: 'We tell you exactly what documents are needed. Send them via WhatsApp or bring them to our office on Ada-George Road — no stress, no guesswork.',
-  },
-  {
-    icon: ClipboardCheck,
-    step: '03',
-    title: 'We Process with CAC',
-    description: 'We handle the name search, filing, and all CAC requirements on your behalf. You receive regular updates on the progress of your registration.',
-  },
-  {
-    icon: Award,
-    step: '04',
-    title: 'Collect Your Certificate',
-    description: 'Once approved, collect your original CAC certificate and documents from our office or have them delivered. Your business is now fully registered.',
-  },
+  { icon: MessageCircle, step: '01', title: 'Contact Us', description: 'Message us on WhatsApp or call. Tell us what you want to register.' },
+  { icon: FileText, step: '02', title: 'Submit Your Details', description: 'Send your documents via WhatsApp or bring them to our office.' },
+  { icon: ClipboardCheck, step: '03', title: 'We Handle the Registration', description: 'We process everything with CAC and keep you updated at every stage.' },
+  { icon: Award, step: '04', title: 'Receive Your CAC Certificate', description: 'Collect your original CAC certificate and documents. Done!' },
 ];
 
 export function HowItWorks() {
@@ -39,14 +19,13 @@ export function HowItWorks() {
           title={
             <>
               Four Simple Steps to{' '}
-              <span className="text-brand-700 dark:text-brand-400">Register Your Business with CAC</span>
+              <span className="text-brand-700 dark:text-brand-400">Register Your Business</span>
             </>
           }
-          subtitle="Getting your CAC registration done in Port Harcourt has never been easier. Here is the full process from start to finish."
+          subtitle="Getting your CAC registration done has never been easier."
         />
 
         <div className="relative mt-16">
-          {/* Connecting line */}
           <div className="absolute left-0 right-0 top-12 hidden h-0.5 bg-gradient-to-r from-brand-200 via-accent-300 to-brand-200 lg:block dark:from-brand-800 dark:via-accent-800 dark:to-brand-800" />
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -77,12 +56,7 @@ export function HowItWorks() {
         </div>
 
         <Reveal className="mt-14 text-center">
-          <a
-            href={whatsappLink('Hello Mr. David, I would like to start my CAC registration. What documents do I need?')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-accent inline-flex"
-          >
+          <a href={whatsappLink('Hello Mr. David, I would like to start my CAC registration. What documents do I need?')} target="_blank" rel="noopener noreferrer" className="btn-accent inline-flex">
             <MessageCircle size={20} strokeWidth={2.2} />
             Start Your Registration Now
           </a>

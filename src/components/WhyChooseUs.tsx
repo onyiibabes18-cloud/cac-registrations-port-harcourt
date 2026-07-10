@@ -1,38 +1,14 @@
-import { Zap, Wallet, ShieldCheck, Headphones, Clock, MapPin } from 'lucide-react';
+import { Zap, Wallet, ShieldCheck, Headphones, Lock, Smile } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { SectionHeading } from './SectionHeading';
 
 const REASONS = [
-  {
-    icon: Zap,
-    title: 'Fast & Efficient',
-    description: 'We minimise delays with accurate documentation and direct CAC processing, so you get your certificate as quickly as possible.',
-  },
-  {
-    icon: Wallet,
-    title: 'Affordable Pricing',
-    description: 'Fair, transparent fees with no hidden charges. You know the full cost before we begin — every time.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Full Compliance',
-    description: 'Every registration is done to CAC standards. Your documents are correct, complete, and legally binding.',
-  },
-  {
-    icon: Headphones,
-    title: 'Personal Support',
-    description: 'Mr. David personally guides you through every step. Questions on WhatsApp, phone, or in person — answered promptly.',
-  },
-  {
-    icon: Clock,
-    title: 'Years of Experience',
-    description: 'With 8+ years registering businesses in Port Harcourt, we have seen every case and know how to handle yours.',
-  },
-  {
-    icon: MapPin,
-    title: 'Easy to Reach',
-    description: 'Conveniently located on Ada-George Road, Mile 3, Port Harcourt. Start online or visit our office — your choice.',
-  },
+  { icon: Zap, title: 'Fast Processing', description: 'Quick, accurate documentation and direct CAC processing.' },
+  { icon: Wallet, title: 'Affordable Pricing', description: 'Fair, transparent fees with no hidden charges.' },
+  { icon: ShieldCheck, title: 'Professional Guidance', description: 'Expert advice on the right registration type for you.' },
+  { icon: Headphones, title: 'Reliable Customer Support', description: 'Mr. David personally guides you at every step.' },
+  { icon: Lock, title: 'Secure & Transparent Process', description: 'Your documents are handled safely and professionally.' },
+  { icon: Smile, title: 'Excellent Customer Satisfaction', description: '5.0 Google rating from dozens of happy clients.' },
 ];
 
 export function WhyChooseUs() {
@@ -47,7 +23,7 @@ export function WhyChooseUs() {
               <span className="text-brand-700 dark:text-brand-400">in Port Harcourt</span>
             </>
           }
-          subtitle="Hundreds of business owners in Port Harcourt and across Rivers State trust us with their CAC registration. Here is why we are the top-rated CAC agent in the region."
+          subtitle="Hundreds of business owners trust us with their CAC registration. Here is why."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
