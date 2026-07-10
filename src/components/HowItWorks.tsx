@@ -38,11 +38,11 @@ export function HowItWorks() {
           eyebrow="How It Works"
           title={
             <>
-              FOUR Simple Steps to{' '}
-              <span className="text-brand-700 dark:text-brand-400">Get Registered</span>
+              Four Simple Steps to{' '}
+              <span className="text-brand-700 dark:text-brand-400">Register Your Business with CAC</span>
             </>
           }
-          subtitle="Getting your CAC registration done has never been easier. Here is the full process from start to finish."
+          subtitle="Getting your CAC registration done in Port Harcourt has never been easier. Here is the full process from start to finish."
         />
 
         <div className="relative mt-16">

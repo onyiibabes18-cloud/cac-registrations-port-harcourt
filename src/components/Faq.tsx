@@ -15,11 +15,11 @@ export function Faq() {
           eyebrow="FAQ"
           title={
             <>
-              Frequently Asked{' '}
-              <span className="text-brand-700 dark:text-brand-400">Questions</span>
+              CAC Registration in Port Harcourt —{' '}
+              <span className="text-brand-700 dark:text-brand-400">Frequently Asked Questions</span>
             </>
           }
-          subtitle="Everything you need to know about CAC registration. Still have questions? Just message us."
+          subtitle="Everything you need to know about registering your business with the Corporate Affairs Commission in Port Harcourt. Still have questions? Just message us."
         />
 
         <div className="mx-auto mt-12 max-w-3xl space-y-3.5">
