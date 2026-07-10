@@ -40,7 +40,6 @@ export function Reviews() {
     [maxIndex],
   );
 
-  // Auto-advance
   useEffect(() => {
     const id = setInterval(() => {
       setActive((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -48,7 +47,6 @@ export function Reviews() {
     return () => clearInterval(id);
   }, [maxIndex]);
 
-  // Sync scroll position with active index
   const onScroll = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -69,26 +67,19 @@ export function Reviews() {
               Rated <span className="text-brand-700 dark:text-brand-400">5.0 Stars</span> by Businesses Across Port Harcourt
             </>
           }
-          subtitle="Real Google reviews from business owners who trusted us with their CAC registration in Port Harcourt, Rivers State."
+          subtitle="Real Google reviews from business owners who trusted us with their CAC registration."
         />
 
-        {/* Rating summary */}
         <Reveal className="mt-10">
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-ink-200/80 bg-white p-6 text-center shadow-sm sm:flex-row sm:justify-center sm:gap-8 sm:text-left dark:border-ink-800 dark:bg-ink-900">
             <div className="flex flex-col items-center">
-              <span className="font-display text-5xl font-extrabold text-ink-900 dark:text-white">
-                {BUSINESS.rating.toFixed(1)}
-              </span>
+              <span className="font-display text-5xl font-extrabold text-ink-900 dark:text-white">{BUSINESS.rating.toFixed(1)}</span>
               <StarRating rating={5} size={18} className="mt-1.5" />
-              <span className="mt-1.5 text-xs font-medium text-ink-500 dark:text-ink-400">
-                {BUSINESS.reviewCount} reviews
-              </span>
+              <span className="mt-1.5 text-xs font-medium text-ink-500 dark:text-ink-400">{BUSINESS.reviewCount} reviews</span>
             </div>
             <div className="hidden h-16 w-px bg-ink-200 sm:block dark:bg-ink-700" />
             <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md">
-                <GoogleG />
-              </span>
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md"><GoogleG /></span>
               <div className="text-left">
                 <p className="text-sm font-semibold text-ink-900 dark:text-white">Google Reviews</p>
                 <p className="text-xs text-ink-500 dark:text-ink-400">Verified by Google</p>
@@ -97,82 +88,46 @@ export function Reviews() {
           </div>
         </Reveal>
 
-        {/* Carousel */}
         <div className="relative mt-12">
-          <div
-            ref={trackRef}
-            onScroll={onScroll}
-            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4"
-          >
+          <div ref={trackRef} onScroll={onScroll} className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4">
             {REVIEWS.map((review, i) => (
-              <article
-                key={i}
-                className="w-[85%] shrink-0 snap-center sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-              >
+              <article key={i} className="w-[85%] shrink-0 snap-center sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <div className="card flex h-full flex-col p-6 hover:shadow-lg hover:shadow-brand-700/10">
                   <div className="flex items-start justify-between">
                     <Quote size={32} className="text-brand-200 dark:text-brand-800" strokeWidth={1.5} />
                     <StarRating rating={review.rating} size={15} />
                   </div>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-ink-700 dark:text-ink-300">
-                    "{review.text}"
-                  </p>
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-ink-700 dark:text-ink-300">&ldquo;{review.text}&rdquo;</p>
                   <div className="mt-5 flex items-center gap-3 border-t border-ink-100 pt-4 dark:border-ink-800">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-sm font-bold text-white">
-                      {review.initials}
-                    </span>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-sm font-bold text-white">{review.initials}</span>
                     <div className="min-w-0">
-                      <p className="truncate text-sm font-semibold text-ink-900 dark:text-white">
-                        {review.name}
-                      </p>
-                      <p className="truncate text-xs text-ink-500 dark:text-ink-400">
-                        {review.service} · {review.date}
-                      </p>
+                      <p className="truncate text-sm font-semibold text-ink-900 dark:text-white">{review.name}</p>
                     </div>
-                    <span className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center">
-                      <GoogleG small />
-                    </span>
+                    <span className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><GoogleG small /></span>
                   </div>
                 </div>
               </article>
             ))}
           </div>
 
-          {/* Controls */}
           <div className="mt-6 flex items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => scrollTo(active - 1)}
-              disabled={active === 0}
-              aria-label="Previous reviews"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:opacity-40 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200 dark:hover:border-brand-700"
-            >
+            <button type="button" onClick={() => scrollTo(active - 1)} disabled={active === 0} aria-label="Previous reviews" className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:opacity-40 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200">
               <ChevronLeft size={20} />
             </button>
             <div className="flex items-center gap-1.5">
               {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => scrollTo(i)}
-                  aria-label={`Go to review page ${i + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === active ? 'w-7 bg-brand-700 dark:bg-brand-400' : 'w-2 bg-ink-300 dark:bg-ink-700'
-                  }`}
-                />
+                <button key={i} type="button" onClick={() => scrollTo(i)} aria-label={`Go to review page ${i + 1}`} className={`h-2 rounded-full transition-all duration-300 ${i === active ? 'w-7 bg-brand-700 dark:bg-brand-400' : 'w-2 bg-ink-300 dark:bg-ink-700'}`} />
               ))}
             </div>
-            <button
-              type="button"
-              onClick={() => scrollTo(active + 1)}
-              disabled={active >= maxIndex}
-              aria-label="Next reviews"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:opacity-40 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200 dark:hover:border-brand-700"
-            >
+            <button type="button" onClick={() => scrollTo(active + 1)} disabled={active >= maxIndex} aria-label="Next reviews" className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:opacity-40 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200">
               <ChevronRight size={20} />
             </button>
           </div>
         </div>
+
+        <Reveal className="mt-10 text-center">
+          <p className="text-sm text-ink-500 dark:text-ink-400">Many more satisfied customers have trusted us with their CAC registration.</p>
+        </Reveal>
       </div>
     </section>
   );
