@@ -87,10 +87,10 @@ export function Contact() {
           title={
             <>
               Get in Touch &amp;{' '}
-              <span className="text-brand-700 dark:text-brand-400">Start Your Registration</span>
+              <span className="text-brand-700 dark:text-brand-400">Register Your Business with CAC Today</span>
             </>
           }
-          subtitle="Send us a message, call, or visit our office on Ada-George Road, Port Harcourt. We respond quickly."
+          subtitle="Send us a message, call, or visit our CAC registration office on Ada-George Road, Port Harcourt. We respond quickly."
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
@@ -295,7 +295,7 @@ export function Contact() {
                 <div className="overflow-hidden">
                   <img
                     src={INTERIOR_PHOTO}
-                    alt="CAC Registrations Port Harcourt office interior"
+                    alt="CAC Registrations Port Harcourt office interior — business registration consultation"
                     className="h-48 w-full object-cover sm:h-56"
                     loading="lazy"
                     width="1000"
