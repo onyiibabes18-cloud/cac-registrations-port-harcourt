@@ -1,5 +1,4 @@
-import { useState, type FormEvent } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { useState, useRef, type FormEvent } from 'react';
 import {
   MapPin,
   Phone,
@@ -10,20 +9,23 @@ import {
   MessageCircle,
   ExternalLink,
   Mail,
+  AlertTriangle,
 } from 'lucide-react';
 import { BUSINESS, whatsappLink } from '../data/business';
 import { SERVICES } from '../data/services';
 import { Reveal } from './Reveal';
 import { SectionHeading } from './SectionHeading';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY,
-);
-
 // NOTE: Replace this URL with the uploaded office interior photo.
 const INTERIOR_PHOTO =
   'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1000';
+
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+const SUPABASE_AVAILABLE = Boolean(
+  SUPABASE_URL && SUPABASE_URL !== 'your-supabase-url' &&
+  SUPABASE_ANON_KEY && SUPABASE_ANON_KEY !== 'your-supabase-anon-key',
+);
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -36,6 +38,17 @@ export function Contact() {
     service: '',
     message: '',
   });
+  // Lazily initialise the Supabase client only when env vars are present
+  const supabaseRef = useRef<import('@supabase/supabase-js').SupabaseClient | null>(null);
+
+  async function getSupabase() {
+    if (!SUPABASE_AVAILABLE) return null;
+    if (!supabaseRef.current) {
+      const { createClient } = await import('@supabase/supabase-js');
+      supabaseRef.current = createClient(SUPABASE_URL!, SUPABASE_ANON_KEY!);
+    }
+    return supabaseRef.current;
+  }
 
   const update = (key: keyof typeof form, value: string) =>
     setForm((f) => ({ ...f, [key]: value }));
@@ -45,7 +58,9 @@ export function Contact() {
     if (status === 'loading') return;
     setStatus('loading');
     try {
-      const { error } = await supabase.from('contact_submissions').insert({
+      const client = await getSupabase();
+      if (!client) throw new Error('Database not configured');
+      const { error } = await client.from('contact_submissions').insert({
         full_name: form.full_name,
         email: form.email,
         phone: form.phone,
@@ -90,6 +105,24 @@ export function Contact() {
                   Fill the form and {BUSINESS.owner} will get back to you shortly.
                 </p>
 
+                {!SUPABASE_AVAILABLE && (
+                  <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-700/50 dark:bg-amber-950/30 dark:text-amber-300">
+                    <AlertTriangle size={16} className="mt-0.5 shrink-0" />
+                    <span>
+                      The contact form is temporarily unavailable. Please call or message us on{' '}
+                      <a
+                        href={whatsappLink('Hello Mr. David, I would like to register my business.')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold underline underline-offset-2"
+                      >
+                        WhatsApp
+                      </a>{' '}
+                      directly.
+                    </span>
+                  </div>
+                )}
+
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div className="sm:col-span-1">
                     <label htmlFor="full_name" className="mb-1.5 block text-sm font-medium text-ink-700 dark:text-ink-300">
@@ -99,10 +132,11 @@ export function Contact() {
                       id="full_name"
                       type="text"
                       required
+                      disabled={!SUPABASE_AVAILABLE}
                       value={form.full_name}
                       onChange={(e) => update('full_name', e.target.value)}
                       placeholder="e.g. Chinedu Okafor"
-                      className={inputCls}
+                      className={`${inputCls} disabled:cursor-not-allowed disabled:opacity-50`}
                     />
                   </div>
                   <div className="sm:col-span-1">
@@ -113,10 +147,11 @@ export function Contact() {
                       id="phone"
                       type="tel"
                       required
+                      disabled={!SUPABASE_AVAILABLE}
                       value={form.phone}
                       onChange={(e) => update('phone', e.target.value)}
                       placeholder="e.g. 0801 234 5678"
-                      className={inputCls}
+                      className={`${inputCls} disabled:cursor-not-allowed disabled:opacity-50`}
                     />
                   </div>
                   <div className="sm:col-span-1">
@@ -127,10 +162,11 @@ export function Contact() {
                       id="email"
                       type="email"
                       required
+                      disabled={!SUPABASE_AVAILABLE}
                       value={form.email}
                       onChange={(e) => update('email', e.target.value)}
                       placeholder="you@example.com"
-                      className={inputCls}
+                      className={`${inputCls} disabled:cursor-not-allowed disabled:opacity-50`}
                     />
                   </div>
                   <div className="sm:col-span-1">
@@ -139,9 +175,10 @@ export function Contact() {
                     </label>
                     <select
                       id="service"
+                      disabled={!SUPABASE_AVAILABLE}
                       value={form.service}
                       onChange={(e) => update('service', e.target.value)}
-                      className={inputCls}
+                      className={`${inputCls} disabled:cursor-not-allowed disabled:opacity-50`}
                     >
                       <option value="">Select a service</option>
                       {SERVICES.map((s) => (
@@ -159,15 +196,20 @@ export function Contact() {
                       id="message"
                       required
                       rows={4}
+                      disabled={!SUPABASE_AVAILABLE}
                       value={form.message}
                       onChange={(e) => update('message', e.target.value)}
                       placeholder="Tell us about the business you want to register..."
-                      className={`${inputCls} resize-none`}
+                      className={`${inputCls} resize-none disabled:cursor-not-allowed disabled:opacity-50`}
                     />
                   </div>
                 </div>
 
-                <button type="submit" disabled={status === 'loading'} className="btn-primary mt-6 w-full sm:w-auto">
+                <button
+                  type="submit"
+                  disabled={status === 'loading' || !SUPABASE_AVAILABLE}
+                  className="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                >
                   {status === 'loading' ? (
                     <>
                       <Loader2 size={20} className="animate-spin" />
@@ -189,7 +231,7 @@ export function Contact() {
                 )}
                 {status === 'error' && (
                   <div className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700 dark:bg-red-950/40 dark:text-red-300">
-                    Something went wrong. Please try again or call {BUSINESS.phoneDisplay}.
+                    Something went wrong. Please call {BUSINESS.phoneDisplay} or message us on WhatsApp.
                   </div>
                 )}
               </form>

@@ -9,10 +9,11 @@ import { Faq } from './components/Faq';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 export default function App() {
   return (
-    <>
+    <ErrorBoundary>
       <Navbar />
       <main>
         <Hero />
@@ -26,6 +27,6 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppButton />
-    </>
+    </ErrorBoundary>
   );
 }
