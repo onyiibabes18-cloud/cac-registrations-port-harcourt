@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-
-# Block build artifacts and assets that aren't useful to crawl
 Disallow: /assets/
-
-# Sitemap location
 Sitemap: https://cacregistrationsportharcourt.netlify.app/sitemap.xml

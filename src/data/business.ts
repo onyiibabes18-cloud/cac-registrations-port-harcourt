@@ -7,7 +7,7 @@ export const BUSINESS = {
   whatsapp: '2348076805579',
   email: 'hello@cacregistrationsph.com',
   website: 'https://cacregistrationsportharcourt.netlify.app',
-  address: 'Mile 3, 23 Ada-George Road, Mgbuosimiri, Port Harcourt, Rivers State',
+  address: 'Mile 3, 23 Ada-George Road, Mgbuosimiri, Port Harcourt 500262, Rivers State, Nigeria',
   addressShort: 'Mile 3, 23 Ada-George Road, Port Harcourt',
   rating: 5.0,
   reviewCount: 24,

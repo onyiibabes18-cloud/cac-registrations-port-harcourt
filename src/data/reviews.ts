@@ -2,75 +2,38 @@ export interface Review {
   name: string;
   initials: string;
   rating: number;
-  date: string;
   text: string;
-  service: string;
 }
 
-// Authentic-style Google reviews reflecting the 5.0 rating
 export const REVIEWS: Review[] = [
   {
-    name: 'Emeka Okafor',
-    initials: 'EO',
+    name: 'Sisi Belema',
+    initials: 'SB',
     rating: 5,
-    date: '2 weeks ago',
-    service: 'Business Name Registration',
-    text: 'Mr. David handled my business name registration smoothly and professionally. The whole process was stress-free and much faster than I expected. I was kept updated at every stage. Highly recommended for anyone in Port Harcourt.',
+    text: 'I had an excellent experience with CAC Registration PH. The process was smooth, well organized and surprisingly fast. The staff were very professional, knowledgeable and always ready to assist with any questions I had. Great place.',
   },
   {
-    name: 'Ngozi Precious',
-    initials: 'NP',
+    name: 'Melody Nwiko',
+    initials: 'MN',
     rating: 5,
-    date: '1 month ago',
-    service: 'Company Registration',
-    text: 'I registered my limited company with CAC through this office and I was impressed. Everything was done properly and on time. Mr. David is very knowledgeable and patient — he explained every document clearly.',
+    text: "I'm very excited with the CAC registration service I received! The whole process was so smooth and stress-free. They guided me through every step and handled everything quickly and professionally. Highly recommend!",
   },
   {
-    name: 'Ibrahim Musa',
-    initials: 'IM',
+    name: 'Hope Nwiko',
+    initials: 'HN',
     rating: 5,
-    date: '1 month ago',
-    service: 'Club Registration',
-    text: 'We needed to register our social club and did not know where to start. CAC Registrations Port Harcourt made it easy. Professional service, fair price, and the certificate came out clean. Thank you sir.',
+    text: 'I had a great experience. The entire registration process was smooth and stress-free. Responsive, helpful and professional.',
   },
   {
-    name: 'Blessing Worgu',
-    initials: 'BW',
+    name: 'Favour Onyinyechi',
+    initials: 'FO',
     rating: 5,
-    date: '2 months ago',
-    service: 'Business Name Registration',
-    text: 'Fast and affordable. I got my CAC business name certificate without any stress. The office is easy to locate on Ada-George Road and the customer service is excellent. God bless you Mr. David.',
+    text: 'Nice experience and very quick.',
   },
   {
-    name: 'Tunde Bakare',
-    initials: 'TB',
+    name: 'Sheila Ogochukwu Ndah',
+    initials: 'SN',
     rating: 5,
-    date: '2 months ago',
-    service: 'Association Registration',
-    text: 'Registered our association as incorporated trustees. The guidance on constitution and trustee documents was top-notch. I appreciate the honesty and transparency throughout the process.',
-  },
-  {
-    name: 'Amaka Stephen',
-    initials: 'AS',
-    rating: 5,
-    date: '3 months ago',
-    service: 'Post-Registration Compliance',
-    text: 'They helped me file my annual returns and update my business address. Very reliable and affordable. I will always come back here for any CAC matter. Five stars well deserved.',
-  },
-  {
-    name: 'Chukwuemeka Nwafor',
-    initials: 'CN',
-    rating: 5,
-    date: '3 months ago',
-    service: 'Company Registration',
-    text: 'Top class service. From the first phone call to the final certificate, everything was handled professionally. The pricing is fair and there are no hidden charges. I strongly recommend them.',
-  },
-  {
-    name: 'Grace Eze',
-    initials: 'GE',
-    rating: 5,
-    date: '4 months ago',
-    service: 'Union Registration',
-    text: 'Our cooperative union is now fully registered thanks to this office. Mr. David knows his work very well. The process that looked complicated was made simple for us. Thank you for the great service.',
+    text: 'Seamless and smooth process to get my business registered and the wait time was minimal. 10000% recommend.',
   },
 ];
