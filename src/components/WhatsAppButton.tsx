@@ -17,10 +17,7 @@ export function WhatsAppButton() {
     if (!show) return;
     const t = setTimeout(() => setTooltip(true), 1200);
     const t2 = setTimeout(() => setTooltip(false), 7000);
-    return () => {
-      clearTimeout(t);
-      clearTimeout(t2);
-    };
+    return () => { clearTimeout(t); clearTimeout(t2); };
   }, [show]);
 
   return (
@@ -29,27 +26,15 @@ export function WhatsAppButton() {
         show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-8 opacity-0'
       }`}
     >
-      {/* Tooltip */}
       {tooltip && (
         <div className="relative max-w-[220px] animate-fade-up rounded-2xl rounded-br-sm bg-white px-4 py-3 shadow-xl ring-1 ring-ink-900/5 dark:bg-ink-800 dark:ring-white/5">
-          <button
-            type="button"
-            onClick={() => setTooltip(false)}
-            aria-label="Dismiss"
-            className="absolute -left-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-ink-200 text-ink-600 dark:bg-ink-700 dark:text-ink-300"
-          >
+          <button type="button" onClick={() => setTooltip(false)} aria-label="Dismiss" className="absolute -left-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-ink-200 text-ink-600 dark:bg-ink-700 dark:text-ink-300">
             <X size={12} strokeWidth={2.5} />
           </button>
-          <p className="text-sm font-medium text-ink-800 dark:text-ink-100">
-            Need to register your business?
-          </p>
-          <p className="mt-0.5 text-xs text-ink-500 dark:text-ink-400">
-            Chat with {BUSINESS.owner} on WhatsApp now!
-          </p>
+          <p className="text-sm font-medium text-ink-800 dark:text-ink-100">Need to register your business?</p>
+          <p className="mt-0.5 text-xs text-ink-500 dark:text-ink-400">Chat with {BUSINESS.owner} on WhatsApp now!</p>
         </div>
       )}
-
-      {/* Button */}
       <a
         href={whatsappLink('Hello Mr. David, I would like to register my business with CAC.')}
         target="_blank"
