@@ -66,11 +66,10 @@ export function Reviews() {
           eyebrow="Google Reviews"
           title={
             <>
-              Rated <span className="text-brand-700 dark:text-brand-400">5.0 Stars</span> by Our
-              Clients
+              Rated <span className="text-brand-700 dark:text-brand-400">5.0 Stars</span> by Businesses Across Port Harcourt
             </>
           }
-          subtitle="Real reviews from business owners who trusted us with their CAC registration."
+          subtitle="Real Google reviews from business owners who trusted us with their CAC registration in Port Harcourt, Rivers State."
         />
 
         {/* Rating summary */}
