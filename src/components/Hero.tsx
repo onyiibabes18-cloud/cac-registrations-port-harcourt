@@ -44,9 +44,9 @@ export function Hero() {
             </div>
 
             <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl dark:text-white">
-              Register Your Business with{' '}
+              CAC Registration in{' '}
               <span className="relative whitespace-nowrap text-brand-700 dark:text-brand-400">
-                CAC
+                Port Harcourt
                 <svg
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 200 12"
@@ -65,9 +65,10 @@ export function Hero() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-600 dark:text-ink-300">
-              CAC Registrations Port Harcourt helps you register your Business Name, Company,
-              Club, Association, or Union with the Corporate Affairs Commission — handled
-              professionally by {BUSINESS.owner} and his team.
+              Register your Business Name, Company, Club, Association, or Union with the
+              Corporate Affairs Commission (CAC) in Port Harcourt, Rivers State. Expert CAC
+              agent {BUSINESS.owner} handles your registration quickly, correctly, and at an
+              affordable cost — with no hidden charges.
             </p>
 
             {/* CTAs */}
@@ -123,7 +124,7 @@ export function Hero() {
               <div className="relative overflow-hidden rounded-3xl border border-ink-100 shadow-2xl shadow-brand-900/15 dark:border-ink-800">
                 <img
                   src="https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=900"
-                  alt="Professional business registration consultation in Port Harcourt office"
+                  alt="CAC business registration consultation in Port Harcourt office with Mr. David"
                   className="h-[420px] w-full object-cover sm:h-[480px]"
                   loading="eager"
                   width="900"

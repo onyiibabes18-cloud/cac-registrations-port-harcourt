@@ -43,11 +43,11 @@ export function WhyChooseUs() {
           eyebrow="Why Choose Us"
           title={
             <>
-              The Trusted Choice for{' '}
-              <span className="text-brand-700 dark:text-brand-400">CAC Registration</span>
+              Why Choose Our CAC Registration Service{' '}
+              <span className="text-brand-700 dark:text-brand-400">in Port Harcourt</span>
             </>
           }
-          subtitle="Hundreds of business owners in Port Harcourt and across Rivers State trust us with their registration. Here is why."
+          subtitle="Hundreds of business owners in Port Harcourt and across Rivers State trust us with their CAC registration. Here is why we are the top-rated CAC agent in the region."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

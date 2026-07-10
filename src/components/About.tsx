@@ -34,7 +34,7 @@ export function About() {
               <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-ink-900/15">
                 <img
                   src={SIGNBOARD_PHOTO}
-                  alt="CAC Registrations Port Harcourt office signboard on Ada-George Road"
+                  alt="CAC Registrations Port Harcourt office signboard on Ada-George Road, Rivers State"
                   className="h-[380px] w-full object-cover sm:h-[460px]"
                   loading="lazy"
                   width="1000"
@@ -63,8 +63,8 @@ export function About() {
               align="left"
               title={
                 <>
-                  Your Trusted CAC Registration Partner{' '}
-                  <span className="text-brand-700 dark:text-brand-400">in Port Harcourt</span>
+                  Your Trusted CAC Registration Agent{' '}
+                  <span className="text-brand-700 dark:text-brand-400">in Port Harcourt, Rivers State</span>
                 </>
               }
               subtitle={

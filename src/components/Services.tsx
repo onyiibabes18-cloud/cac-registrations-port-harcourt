@@ -12,11 +12,11 @@ export function Services() {
           eyebrow="Our Services"
           title={
             <>
-              Complete CAC Registration Services{' '}
+              Complete CAC Registration Services in Port Harcourt{' '}
               <span className="text-brand-700 dark:text-brand-400">Under One Roof</span>
             </>
           }
-          subtitle="From business names to incorporated trustees, we handle every type of CAC registration with precision and care."
+          subtitle="From business name registration to incorporated trustees, our CAC agent in Port Harcourt handles every type of Corporate Affairs Commission registration with precision and care."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
