@@ -1,16 +1,15 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
 import { Services } from './components/Services';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { HowItWorks } from './components/HowItWorks';
+import { About } from './components/About';
 import { Reviews } from './components/Reviews';
-import { Faq } from './components/Faq';
+import { CTA } from './components/CTA';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import './seo.css';
 
 export default function App() {
   return (
@@ -18,12 +17,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Services />
         <WhyChooseUs />
         <HowItWorks />
+        <About />
         <Reviews />
-        <Faq />
+        <CTA />
         <Contact />
         {/* Crawlable SEO content for local search visibility */}
         <section className="seo-only" aria-hidden="true">
